@@ -7,7 +7,7 @@
 namespace GreenThump.Migrations
 {
     /// <inheritdoc />
-    public partial class initial_seeda : Migration
+    public partial class seeddata : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,8 @@ namespace GreenThump.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -47,12 +48,12 @@ namespace GreenThump.Migrations
 
             migrationBuilder.InsertData(
                 table: "Plants",
-                columns: new[] { "id", "name" },
+                columns: new[] { "id", "description", "name" },
                 values: new object[,]
                 {
-                    { 1, "Sansevieria" },
-                    { 2, "Spathiphyllum" },
-                    { 3, "Zamioculcas" }
+                    { 1, "Sansevieria plants are characterized by their long, upright, and sword-shaped leaves", "Sansevieria" },
+                    { 2, "commonly known as peace lilies, is a genus of flowering plants in the family Araceae. ", "Spathiphyllum" },
+                    { 3, "is a popular and hardy indoor plant known for its tolerance of low light conditions", "Zamioculcas" }
                 });
 
             migrationBuilder.InsertData(
@@ -60,9 +61,12 @@ namespace GreenThump.Migrations
                 columns: new[] { "id", "instructions", "plant_id" },
                 values: new object[,]
                 {
-                    { 1, "Allow soil to dry between waterings, avoid overwatering.", 1 },
-                    { 2, "Keep soil consistently moist but not soggy; water when the top inch of soil feels dry.", 2 },
-                    { 3, " Allow the soil to dry out between waterings; water sparingly.", 3 }
+                    { 1, "Let soil dry.", 1 },
+                    { 2, "Avoid overwatering.", 1 },
+                    { 3, "Keep soil moist.", 2 },
+                    { 4, "Water when top dry.", 2 },
+                    { 5, " Let soil dry then water.", 3 },
+                    { 6, "Water sparingly.", 3 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -14,22 +14,41 @@ namespace GreenThump
         {
             InitializeComponent();
 
+
             using (GreenThumpDb context = new())
             {
-                GreenThumpRepository<Instruction> greenThumpRepository = new(context);
-                var items = greenThumpRepository.GetAll();
+                //GreenThumpRepository<Instruction> greenThumpRepository = new(context);
+                //var items = greenThumpRepository.GetAll();
+                var items = new List<Instruction>();
                 if (items != null)
                 {
                     foreach (var item in items)
                     {
-                        ComboBoxItem comboBoxItem = new();
-                        comboBoxItem.Tag = item;
-                        comboBoxItem.Content = item.InstructionText;
-                        cmbInstructions.Items.Add(comboBoxItem);
+                        ListViewItem listViewItem = new();
+                        listViewItem.Tag = item;
+                        listViewItem.Content = item.InstructionText;
+                        lstinstruction.Items.Add(listViewItem);
                     }
                 }
-
             }
+
+
+            //using (GreenThumpDb context = new())
+            //{
+            //    GreenThumpRepository<Instruction> greenThumpRepository = new(context);
+            //    var items = greenThumpRepository.GetAll();
+            //    if (items != null)
+            //    {
+            //        foreach (var item in items)
+            //        {
+            //            ComboBoxItem comboBoxItem = new();
+            //            comboBoxItem.Tag = item;
+            //            comboBoxItem.Content = item.InstructionText;
+            //            cmbInstructions.Items.Add(comboBoxItem);
+            //        }
+            //    }
+
+            //}
         }
 
         private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -85,20 +104,44 @@ namespace GreenThump
 
         private void btnAddIntsruction_Click(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem selectedinstruction = (ComboBoxItem)cmbInstructions.SelectedItem;
-            if (selectedinstruction != null)
+            string Addinstruction = txtinstruction.Text;
+
+            if (!string.IsNullOrEmpty(Addinstruction))
             {
-                Instruction instructions = (Instruction)selectedinstruction.Tag;
-                ListViewItem item = new();
-                item.Tag = instructions;
-                item.Content = instructions.InstructionText;
+                Instruction instruction = new Instruction { InstructionText = Addinstruction };
+
+                ListViewItem item = new ListViewItem
+                {
+                    Tag = instruction,
+                    Content = Addinstruction
+                };
+
                 lstinstruction.Items.Add(item);
-                cmbInstructions.SelectedIndex = -1;
+                txtinstruction.Clear();
             }
             else
             {
-                MessageBox.Show("Select instruction Albin !", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Enter instruction text!", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+
+        //private void btnAddIntsruction_Click(object sender, RoutedEventArgs e)
+        //{
+        //    ComboBoxItem selectedinstruction = (ComboBoxItem)cmbInstructions.SelectedItem;
+        //    if (selectedinstruction != null)
+        //    {
+        //        Instruction instructions = (Instruction)selectedinstruction.Tag;
+        //        ListViewItem item = new();
+        //        item.Tag = instructions;
+        //        item.Content = instructions.InstructionText;
+        //        lstinstruction.Items.Add(item);
+        //        cmbInstructions.SelectedIndex = -1;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Select instruction Albin !", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+        //    }
+        //}
     }
 }

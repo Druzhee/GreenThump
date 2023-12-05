@@ -25,7 +25,7 @@
         <ListView Name="lstPlants" Grid.Column="1" Grid.Row="1"  Margin="0 0 0 130"  />
 
         <Button Name="btnDetalis" Grid.Column="1" Grid.Row="1" Margin="0,209,436,71" Content="Detalis" FontWeight="Bold" Click="btnDetalis_Click" />
-        <Button Name="btnRemove" Grid.Column="1" Grid.Row="1" Margin="0,268,436,10" Content="Remove" FontWeight="Bold" />
+        <Button Name="btnRemove" Grid.Column="1" Grid.Row="1" Margin="0,268,436,10" Content="Remove" FontWeight="Bold" Click="btnRemove_Click" />
         <Button Name="btnAdd" Grid.Column="1" Grid.Row="1" Margin="448,272,0,10" Content="Add Plant" FontWeight="Bold" Click="btnAdd_Click" />
 
 

@@ -89,8 +89,35 @@ namespace GreenThump
                 plantDetalis.Show();
                 Close();
             }
+            else
+            {
+                MessageBox.Show("Select a plant to see detalis", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
 
 
         }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstPlants.SelectedItem != null)
+            {
+                ListViewItem selectedItem = (ListViewItem)lstPlants.SelectedItem;
+                Plant selectedPlant = (Plant)selectedItem.Tag;
+
+                for (int i = 0; i < lstPlants.Items.Count; i++)
+                {
+                    if (lstPlants.Items[i] == selectedItem)
+                    {
+                        lstPlants.Items.RemoveAt(i);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select a plant to remove", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
     }
 };

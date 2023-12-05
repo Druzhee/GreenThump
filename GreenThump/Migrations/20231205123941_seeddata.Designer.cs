@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThump.Migrations
 {
     [DbContext(typeof(GreenThumpDb))]
-    [Migration("20231204192650_seeddata_description")]
-    partial class seeddata_description
+    [Migration("20231205123941_seeddata")]
+    partial class seeddata
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,7 @@ namespace GreenThump.Migrations
                         new
                         {
                             Id = 1,
-                            InstructionText = "Allow soil to dry between waterings.",
+                            InstructionText = "Let soil dry.",
                             PlantId = 1
                         },
                         new
@@ -64,19 +64,19 @@ namespace GreenThump.Migrations
                         new
                         {
                             Id = 3,
-                            InstructionText = "Keep soil consistently moist but not soggy.",
+                            InstructionText = "Keep soil moist.",
                             PlantId = 2
                         },
                         new
                         {
                             Id = 4,
-                            InstructionText = "Water when the top inch of soil feels dry.",
+                            InstructionText = "Water when top dry.",
                             PlantId = 2
                         },
                         new
                         {
                             Id = 5,
-                            InstructionText = " Allow the soil to dry out between waterings.",
+                            InstructionText = " Let soil dry then water.",
                             PlantId = 3
                         },
                         new

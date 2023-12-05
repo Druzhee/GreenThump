@@ -26,19 +26,19 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Add Plant" Grid.Column="2" Grid.ColumnSpan="2" FontSize="30" FontFamily="Arial" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Center" />
         <TextBlock Text="Name" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" />
-        <TextBlock Text="Insturction" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" />
-        <TextBlock Text="Description" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontFamily="Arial" FontSize="17" FontWeight="Bold" />
+        <TextBlock Text="Insturction" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" />
+        <TextBlock Text="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontFamily="Arial" FontSize="17" FontWeight="Bold" />
 
 
-        <TextBox Name="txtName" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" />
-        <ComboBox Name="cmbInstructions" Grid.Column="1" Grid.Row="2"  Height="40" Background="White" HorizontalAlignment="Left" Margin="0,23,0,23" Width="200" SelectionChanged="cmbInstructions_SelectionChanged" />
-        <TextBox Name="txtDescription" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Height="40" TextWrapping="Wrap" />
+        <TextBox Name="txtName" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" VerticalContentAlignment="Center" />
+        <TextBox Name="txtinstruction" Grid.Column="2" Grid.Row="3"  Height="40" Background="White" HorizontalAlignment="Left" Margin="0,23,0,23" Width="200" TextWrapping="Wrap" VerticalContentAlignment="Center"  />
+        <TextBox Name="txtDescription" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Height="40" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
 
         <ListView Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Height="200" Width="150" Name="lstinstruction" />
 
 
         <Button Name="btnSave" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Margin="30 20 30 30" Content="Save" Foreground="Black" FontWeight="bold" Click="btnSave_Click" />
         <Button Name="btnGoBack" Grid.Column="0" Height="30" Margin="0 0 30 0" VerticalAlignment="Top" Foreground="Black" Content="Back" FontWeight="Bold" Click="btnGoBack_Click" />
-        <Button Name="btnAddIntsruction" Grid.Column="2" Grid.ColumnSpan="2" Width="100" Height="35" Grid.Row="2" Content="Add" FontWeight="Bold" Click="btnAddIntsruction_Click"  />
+        <Button Name="btnAddIntsruction" Grid.Column="2" Grid.ColumnSpan="3" Width="100" Height="35" Grid.Row="3" Content="Add" FontWeight="Bold" Click="btnAddIntsruction_Click"   />
     </Grid>
 </Window>

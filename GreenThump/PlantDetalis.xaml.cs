@@ -12,20 +12,8 @@ namespace GreenThump
         {
             InitializeComponent();
 
-            //var instructions = plant.Instructions.ToList();
-            //foreach (var instr in instructions)
-            //{
-            //    ListViewItem item = new();
-            //    item.Tag = instr;
-            //    item.Content = instr.InstructionText;
-            //    if (instr.InstructionText != null)
-            //    {
-            //        lstInstruction.Items.Add(item);
-            //    }
-            //}
-            //txtPlantName.Text = plant.Name;
-            //txtPlantInstruction.Text = plant.Instructions;
-
+            txtPlantName.Text = plant.Name;
+            txtPlantInstruction.Text = // hut göt jag för att se plantens instruction.
             txtPlantDescription.Text = plant.Description;
         }
 
@@ -36,6 +24,11 @@ namespace GreenThump
             Close();
         }
 
-
+        private void btnGobacktoMain_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
     }
 }
