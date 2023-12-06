@@ -2,12 +2,12 @@
 
 namespace GreenThump.Database
 {
-    public class GreenThumpRepository<T> where T : class
+    public class GreenThumbRepository<T> where T : class
     {
-        private readonly GreenThumpDb _context;
+        private readonly GreenThumbDb _context;
         private readonly DbSet<T> _dbSet;
 
-        public GreenThumpRepository(GreenThumpDb context)
+        public GreenThumbRepository(GreenThumbDb context)
         {
             _context = context;
             _dbSet = context.Set<T>();
@@ -51,6 +51,5 @@ namespace GreenThump.Database
         {
             _context.SaveChanges();
         }
-
     }
 }

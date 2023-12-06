@@ -15,7 +15,7 @@ namespace GreenThump
             InitializeComponent();
 
 
-            using (GreenThumpDb context = new())
+            using (GreenThumbDb context = new())
             {
                 //GreenThumpRepository<Instruction> greenThumpRepository = new(context);
                 //var items = greenThumpRepository.GetAll();
@@ -60,10 +60,10 @@ namespace GreenThump
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            using (GreenThumpDb context = new())
+            using (GreenThumbDb context = new())
             {
-                GreenThumpRepository<Instruction> AddInstruction = new(context);
-                GreenThumpRepository<Plant> AddPlant = new(context);
+                GreenThumbRepository<Instruction> AddInstruction = new(context);
+                GreenThumbRepository<Plant> AddPlant = new(context);
                 string name = txtName.Text;
                 string Description = txtDescription.Text;
                 List<Instruction> instructions = new();
@@ -82,19 +82,10 @@ namespace GreenThump
 
                 AddPlant.Add(plant);
                 AddPlant.Complete();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                Close();
             }
-            //string name = txtName.Text;
-            ////string Instruction = txtInstructions.Text;
-            //string Description = txtDescription.Text;
-
-            //if (name != "" && Instruction != "" && Description != "")
-            //{
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("You have to write in");
-            //}
         }
 
         private void cmbInstructions_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)

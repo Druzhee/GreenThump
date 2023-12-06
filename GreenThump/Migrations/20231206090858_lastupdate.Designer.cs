@@ -3,16 +3,19 @@ using GreenThump.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace GreenThump.Migrations
+namespace GreenThumb.Migrations
 {
-    [DbContext(typeof(GreenThumpDb))]
-    partial class GreenThumpDbModelSnapshot : ModelSnapshot
+    [DbContext(typeof(GreenThumbDb))]
+    [Migration("20231206090858_lastupdate")]
+    partial class lastupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

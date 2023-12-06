@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GreenThump.Database
 {
-    public class GreenThumpDb : DbContext
+    public class GreenThumbDb : DbContext
     {
-        public GreenThumpDb()
+        public GreenThumbDb()
         {
 
         }
@@ -17,7 +17,7 @@ namespace GreenThump.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GreenTump;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GreenThumb;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -1,5 +1,7 @@
-﻿using GreenThump.Models;
+﻿using GreenThump.Database;
+using GreenThump.Models;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace GreenThump
 {
@@ -13,7 +15,22 @@ namespace GreenThump
             InitializeComponent();
 
             txtPlantName.Text = plant.Name;
-            txtPlantInstruction.Text = // hut göt jag för att se plantens instruction.
+
+
+
+            using (GreenThumbDb context = new())
+            {
+
+                GreenThumbRepository<Instruction> repository = new(context);
+                foreach (Instruction instruction in plant.Instructions)
+                {
+                    ItemsControl itemsControl = itemitemcontrol;
+                    itemsControl.Tag = instruction;
+                    itemsControl.Items.Add(instruction.InstructionText);
+                }
+            }
+
+
             txtPlantDescription.Text = plant.Description;
         }
 

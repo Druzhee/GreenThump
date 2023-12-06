@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace GreenThump.Migrations
+namespace GreenThumb.Migrations
 {
     /// <inheritdoc />
-    public partial class seeddata : Migration
+    public partial class lastupdate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

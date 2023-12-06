@@ -15,14 +15,13 @@ namespace GreenThump
         public MainWindow()
         {
             InitializeComponent();
-
-
-
-            using (GreenThumpDb context = new())
+            using (GreenThumbDb context = new())
             {
-                GreenThumpRepository<Plant> greenThumpRepository = new(context);
+                GreenThumbRepository<Plant> greenThumpRepository = new(context);
+                GreenThumbRepository<Instruction> instructionRepository = new(context);
 
                 var plant = greenThumpRepository.GetAll();
+                var instructions = instructionRepository.GetAll();
 
                 foreach (var plants in plant)
                 {
@@ -38,9 +37,9 @@ namespace GreenThump
         {
             string searchTerm = txtSearch.Text.ToLower(); // Användarens inmatning
 
-            using (GreenThumpDb context = new())
+            using (GreenThumbDb context = new())
             {
-                GreenThumpRepository<Plant> plants = new(context);
+                GreenThumbRepository<Plant> plants = new(context);
 
                 var allPlants = plants.GetAll();
 
@@ -54,20 +53,7 @@ namespace GreenThump
 
                     lstPlants.Items.Add(item);
                 }
-
             }
-
-            //var filteredPlants = AllPlants.Where(p => p.plant.ToLower().Contains(searchTerm));
-
-            //foreach (var plant in filteredPlants)
-            //{
-            //    ListViewItem item = new();
-            //    item.Tag = plant;
-            //    item.Content = plant.Name;
-
-            //    lstPlants.Items.Add(item);
-            //}
-
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
@@ -108,6 +94,18 @@ namespace GreenThump
                 {
                     if (lstPlants.Items[i] == selectedItem)
                     {
+                        using (GreenThumbDb context = new GreenThumbDb())
+                        {
+                            GreenThumbRepository<Plant> greenThumpRepository = new GreenThumbRepository<Plant>(context);
+                            var plantToDelete = greenThumpRepository.GetByID(selectedPlant.Id);
+
+                            if (plantToDelete != null)
+                            {
+                                greenThumpRepository.Remove(plantToDelete.Id);
+                                context.SaveChanges();
+                            }
+                        }
+
                         lstPlants.Items.RemoveAt(i);
                         break;
                     }
@@ -118,6 +116,7 @@ namespace GreenThump
                 MessageBox.Show("Select a plant to remove", "ERROR", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+
 
     }
 };
