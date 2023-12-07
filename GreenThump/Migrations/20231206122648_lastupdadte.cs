@@ -7,7 +7,7 @@
 namespace GreenThumb.Migrations
 {
     /// <inheritdoc />
-    public partial class lastupdate : Migration
+    public partial class lastupdadte : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,9 +51,14 @@ namespace GreenThumb.Migrations
                 columns: new[] { "id", "description", "name" },
                 values: new object[,]
                 {
-                    { 1, "Sansevieria plants are characterized by their long, upright, and sword-shaped leaves", "Sansevieria" },
-                    { 2, "commonly known as peace lilies, is a genus of flowering plants in the family Araceae. ", "Spathiphyllum" },
-                    { 3, "is a popular and hardy indoor plant known for its tolerance of low light conditions", "Zamioculcas" }
+                    { 1, "Known for its beautiful and fragrant flowers.", "Rose" },
+                    { 2, "Known for its large, yellow flowers.", "Sunflower." },
+                    { 3, " A fragrant herb with purple flowers.", "Lavender. " },
+                    { 4, "known as Mother in law's Tongue.", "Snake Plant. " },
+                    { 5, "These deciduous trees are well-known for their distinctive.", "Maple Tree." },
+                    { 6, "A bulbous plant with vibrant, cup-shaped flowers.", "Tulip." },
+                    { 7, "A fast-growing grass that forms tall, woody stems.", "Bamboo." },
+                    { 8, "Adapted to arid environments, cacti are known for their water-storing capabilities and unique.", "Cactus. " }
                 });
 
             migrationBuilder.InsertData(
@@ -61,12 +66,22 @@ namespace GreenThumb.Migrations
                 columns: new[] { "id", "instructions", "plant_id" },
                 values: new object[,]
                 {
-                    { 1, "Let soil dry.", 1 },
-                    { 2, "Avoid overwatering.", 1 },
+                    { 1, "Well-drained soil.", 1 },
+                    { 2, "Sunlight.", 1 },
                     { 3, "Keep soil moist.", 2 },
-                    { 4, "Water when top dry.", 2 },
-                    { 5, " Let soil dry then water.", 3 },
-                    { 6, "Water sparingly.", 3 }
+                    { 4, "Shade.", 2 },
+                    { 5, "Full sun.", 3 },
+                    { 6, "Regular water.", 3 },
+                    { 7, " Full sun", 4 },
+                    { 8, "Well-drained soil.", 4 },
+                    { 9, "Low light.", 5 },
+                    { 10, "Infrequent water", 5 },
+                    { 11, "Full Sun", 6 },
+                    { 12, "Acidic soil.", 6 },
+                    { 13, "Full Sun.", 7 },
+                    { 14, "Sparse water.", 7 },
+                    { 15, "Full Sun.", 8 },
+                    { 16, "Minimal Water.", 8 }
                 });
 
             migrationBuilder.CreateIndex(

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThump"
         mc:Ignorable="d"
-        Title="PlantDetalis" Height="450" Width="600" Background="LightGreen" ResizeMode="NoResize">
+        Title="Plant Details" Height="450" Width="600" Background="#2C3E50" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
@@ -21,15 +21,16 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBox Name="txtPlantName" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="50" FontSize="20" FontWeight="Bold" VerticalAlignment="Bottom" IsReadOnly="True" />
+
+        <TextBox Name="txtPlantName" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Height="50" FontSize="20" FontWeight="Bold" VerticalAlignment="Bottom" IsReadOnly="True" Background="White"/>
         <ItemsControl Name="itemitemcontrol" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Height="70"  FontSize="15" FontWeight="Bold" VerticalAlignment="Bottom" Background="White" />
-        <TextBox Name="txtPlantDescription" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Height="70" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" VerticalAlignment="Bottom" IsReadOnly="True"   />
+        <TextBox Name="txtPlantDescription" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Height="70" TextWrapping="Wrap" FontSize="13" FontWeight="Bold" VerticalAlignment="Bottom" IsReadOnly="True"  Background="White"/>
 
-        <TextBlock Text="Plant" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="30" Margin="0 0 0 20 " FontWeight="Bold" FontFamily="Arial"  />
-        <TextBlock Text="Instruction" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="27" Margin="0 0 0 50 " FontWeight="Bold" FontFamily="Arial"  />
-        <TextBlock Text="Description" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="27" Margin="0 0 0 50 " FontWeight="Bold" FontFamily="Arial" />
+        <TextBlock Text="Plant" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="30" Margin="0 0 0 20 " FontWeight="Bold" FontFamily="Arial" Foreground="#ECF0F1"/>
+        <TextBlock Text="Instruction" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="27" Margin="0 0 0 50 " FontWeight="Bold" FontFamily="Arial" Foreground="#ECF0F1"/>
+        <TextBlock Text="Description" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontSize="27" Margin="0 0 0 50 " FontWeight="Bold" FontFamily="Arial" Foreground="#ECF0F1"/>
 
-        <Button Name="btnGobacktoMain" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,150,0" Content="Go Back" FontWeight="Bold" Height="30" VerticalAlignment="Top" Click="btnGobacktoMain_Click"   />
+        <Button Name="btnGobacktoMain" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,150,0" Content="Back" FontWeight="Bold" Height="30" VerticalAlignment="Top" Click="btnGobacktoMain_Click" Background="#555555" Foreground="White" />
 
     </Grid>
 </Window>

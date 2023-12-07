@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GreenThump"
         mc:Ignorable="d"
-        Title="Add" Height="450" Width="600" ResizeMode="NoResize" Background="LightGreen">
+        Title="Add" Height="450" Width="600" ResizeMode="NoResize" Background="#2C3E50">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -14,9 +14,8 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
-
         </Grid.ColumnDefinitions>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -24,21 +23,20 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Add Plant" Grid.Column="2" Grid.ColumnSpan="2" FontSize="30" FontFamily="Arial" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Center" />
-        <TextBlock Text="Name" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" />
-        <TextBlock Text="Insturction" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" />
-        <TextBlock Text="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontFamily="Arial" FontSize="17" FontWeight="Bold" />
 
+        <TextBlock Text="Add Plant" Grid.Column="2" Grid.ColumnSpan="2" FontSize="30" FontFamily="Arial" VerticalAlignment="Bottom" FontWeight="Bold" HorizontalAlignment="Center" Foreground="#ECF0F1"/>
+        <TextBlock Text="Name" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" Foreground="#ECF0F1"/>
+        <TextBlock Text="Instruction" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" FontFamily="Arial" FontSize="19" FontWeight="Bold" Foreground="#ECF0F1"/>
+        <TextBlock Text="Description" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontFamily="Arial" FontSize="17" FontWeight="Bold" Foreground="#ECF0F1"/>
 
-        <TextBox Name="txtName" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" VerticalContentAlignment="Center" />
-        <TextBox Name="txtinstruction" Grid.Column="2" Grid.Row="3"  Height="40" Background="White" HorizontalAlignment="Left" Margin="0,23,0,23" Width="200" TextWrapping="Wrap" VerticalContentAlignment="Center"  />
-        <TextBox Name="txtDescription" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Height="40" TextWrapping="Wrap" VerticalContentAlignment="Center"/>
+        <TextBox Name="txtName" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="30" TextWrapping="Wrap" VerticalContentAlignment="Center" FontWeight="Bold" />
+        <TextBox Name="txtinstruction" Grid.Column="2" Grid.Row="3"  Height="40" Background="#FFFFFF" HorizontalAlignment="Left" Margin="0,23,0,23" Width="200" TextWrapping="Wrap" VerticalContentAlignment="Center" Foreground="#2C3E50" FontWeight="Bold"/>
+        <TextBox Name="txtDescription" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Height="40" TextWrapping="Wrap" VerticalContentAlignment="Center" FontWeight="Bold"  />
 
-        <ListView Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Height="200" Width="150" Name="lstinstruction" />
+        <ListView Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Height="200" Width="150" Name="lstinstruction" FontWeight="Bold" />
 
-
-        <Button Name="btnSave" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Margin="30 20 30 30" Content="Save" Foreground="Black" FontWeight="bold" Click="btnSave_Click" />
-        <Button Name="btnGoBack" Grid.Column="0" Height="30" Margin="0 0 30 0" VerticalAlignment="Top" Foreground="Black" Content="Back" FontWeight="Bold" Click="btnGoBack_Click" />
-        <Button Name="btnAddIntsruction" Grid.Column="2" Grid.ColumnSpan="3" Width="100" Height="35" Grid.Row="3" Content="Add" FontWeight="Bold" Click="btnAddIntsruction_Click"   />
+        <Button Name="btnSave" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" Margin="30 20 30 30" Content="Save" Foreground="#ECF0F1" Background="#16A085" FontWeight="bold" Click="btnSave_Click" />
+        <Button Name="btnGoBack" Grid.Column="0" Height="30" Margin="0 0 30 0" VerticalAlignment="Top" Foreground="#ECF0F1" Background="#555555" Content="Back" FontWeight="Bold" Click="btnGoBack_Click" />
+        <Button Name="btnAddIntsruction" Grid.Column="2" Grid.ColumnSpan="3" Width="100" Height="35" Grid.Row="3" Content="Add" FontWeight="Bold" Click="btnAddIntsruction_Click" Background="#3498db" Foreground="#ECF0F1" />
     </Grid>
 </Window>

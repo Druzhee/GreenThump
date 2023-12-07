@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GreenThumb.Migrations
 {
     [DbContext(typeof(GreenThumbDb))]
-    [Migration("20231206090858_lastupdate")]
-    partial class lastupdate
+    [Migration("20231206122648_lastupdadte")]
+    partial class lastupdadte
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,13 +52,13 @@ namespace GreenThumb.Migrations
                         new
                         {
                             Id = 1,
-                            InstructionText = "Let soil dry.",
+                            InstructionText = "Well-drained soil.",
                             PlantId = 1
                         },
                         new
                         {
                             Id = 2,
-                            InstructionText = "Avoid overwatering.",
+                            InstructionText = "Sunlight.",
                             PlantId = 1
                         },
                         new
@@ -70,20 +70,80 @@ namespace GreenThumb.Migrations
                         new
                         {
                             Id = 4,
-                            InstructionText = "Water when top dry.",
+                            InstructionText = "Shade.",
                             PlantId = 2
                         },
                         new
                         {
                             Id = 5,
-                            InstructionText = " Let soil dry then water.",
+                            InstructionText = "Full sun.",
                             PlantId = 3
                         },
                         new
                         {
                             Id = 6,
-                            InstructionText = "Water sparingly.",
+                            InstructionText = "Regular water.",
                             PlantId = 3
+                        },
+                        new
+                        {
+                            Id = 7,
+                            InstructionText = " Full sun",
+                            PlantId = 4
+                        },
+                        new
+                        {
+                            Id = 8,
+                            InstructionText = "Well-drained soil.",
+                            PlantId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            InstructionText = "Low light.",
+                            PlantId = 5
+                        },
+                        new
+                        {
+                            Id = 10,
+                            InstructionText = "Infrequent water",
+                            PlantId = 5
+                        },
+                        new
+                        {
+                            Id = 11,
+                            InstructionText = "Full Sun",
+                            PlantId = 6
+                        },
+                        new
+                        {
+                            Id = 12,
+                            InstructionText = "Acidic soil.",
+                            PlantId = 6
+                        },
+                        new
+                        {
+                            Id = 13,
+                            InstructionText = "Full Sun.",
+                            PlantId = 7
+                        },
+                        new
+                        {
+                            Id = 14,
+                            InstructionText = "Sparse water.",
+                            PlantId = 7
+                        },
+                        new
+                        {
+                            Id = 15,
+                            InstructionText = "Full Sun.",
+                            PlantId = 8
+                        },
+                        new
+                        {
+                            Id = 16,
+                            InstructionText = "Minimal Water.",
+                            PlantId = 8
                         });
                 });
 
@@ -112,20 +172,50 @@ namespace GreenThumb.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "Sansevieria plants are characterized by their long, upright, and sword-shaped leaves",
-                            Name = "Sansevieria"
+                            Description = "Known for its beautiful and fragrant flowers.",
+                            Name = "Rose"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "commonly known as peace lilies, is a genus of flowering plants in the family Araceae. ",
-                            Name = "Spathiphyllum"
+                            Description = "Known for its large, yellow flowers.",
+                            Name = "Sunflower."
                         },
                         new
                         {
                             Id = 3,
-                            Description = "is a popular and hardy indoor plant known for its tolerance of low light conditions",
-                            Name = "Zamioculcas"
+                            Description = " A fragrant herb with purple flowers.",
+                            Name = "Lavender. "
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "known as Mother in law's Tongue.",
+                            Name = "Snake Plant. "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Description = "These deciduous trees are well-known for their distinctive.",
+                            Name = "Maple Tree."
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Description = "A bulbous plant with vibrant, cup-shaped flowers.",
+                            Name = "Tulip."
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Description = "A fast-growing grass that forms tall, woody stems.",
+                            Name = "Bamboo."
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Description = "Adapted to arid environments, cacti are known for their water-storing capabilities and unique.",
+                            Name = "Cactus. "
                         });
                 });
 
