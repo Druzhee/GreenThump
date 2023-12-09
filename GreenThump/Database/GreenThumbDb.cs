@@ -3,12 +3,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GreenThump.Database
 {
+	// hantering av database
 	public class GreenThumbDb : DbContext
 	{
 		public GreenThumbDb()
 		{
 
 		}
+		// lägga in tabellerna i databasen 
 		public DbSet<Plant> Plants { get; set; }
 		public DbSet<Instruction> instructions { get; set; }
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -16,11 +18,12 @@ namespace GreenThump.Database
 			base.OnConfiguring(optionsBuilder);
 			optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=GreenThumb;Trusted_Connection=True;");
 		}
+		// seeda data 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
 
-			// Seeda Data
+			// Seeda Data till plant tabellen 
 			modelBuilder.Entity<Plant>().HasData(new Plant()
 			{
 				Id = 1,
@@ -70,6 +73,7 @@ namespace GreenThump.Database
 				Name = "Cactus ",
 				Description = "Adapted to arid environments, cacti are known for their water-storing capabilities and unique."
 			});
+			// seeda data för instruktion tabellen.
 			modelBuilder.Entity<Instruction>().HasData(new Instruction()
 			{
 				Id = 1,

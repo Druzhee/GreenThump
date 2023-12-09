@@ -7,7 +7,7 @@
 namespace GreenThumb.Migrations
 {
     /// <inheritdoc />
-    public partial class lastupdadte : Migration
+    public partial class initialandseed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -52,13 +52,13 @@ namespace GreenThumb.Migrations
                 values: new object[,]
                 {
                     { 1, "Known for its beautiful and fragrant flowers.", "Rose" },
-                    { 2, "Known for its large, yellow flowers.", "Sunflower." },
-                    { 3, " A fragrant herb with purple flowers.", "Lavender. " },
-                    { 4, "known as Mother in law's Tongue.", "Snake Plant. " },
-                    { 5, "These deciduous trees are well-known for their distinctive.", "Maple Tree." },
-                    { 6, "A bulbous plant with vibrant, cup-shaped flowers.", "Tulip." },
-                    { 7, "A fast-growing grass that forms tall, woody stems.", "Bamboo." },
-                    { 8, "Adapted to arid environments, cacti are known for their water-storing capabilities and unique.", "Cactus. " }
+                    { 2, "Known for its large, yellow flowers.", "Sunflower" },
+                    { 3, " A fragrant herb with purple flowers.", "Lavender " },
+                    { 4, "known as Mother in law's Tongue.", "Snake Plant " },
+                    { 5, "These deciduous trees are well-known for their distinctive.", "Maple Tree" },
+                    { 6, "A bulbous plant with vibrant, cup-shaped flowers.", "Tulip" },
+                    { 7, "A fast-growing grass that forms tall, woody stems.", "Bamboo" },
+                    { 8, "Adapted to arid environments, cacti are known for their water-storing capabilities and unique.", "Cactus " }
                 });
 
             migrationBuilder.InsertData(

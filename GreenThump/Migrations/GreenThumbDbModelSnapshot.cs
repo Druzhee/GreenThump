@@ -176,43 +176,43 @@ namespace GreenThumb.Migrations
                         {
                             Id = 2,
                             Description = "Known for its large, yellow flowers.",
-                            Name = "Sunflower."
+                            Name = "Sunflower"
                         },
                         new
                         {
                             Id = 3,
                             Description = " A fragrant herb with purple flowers.",
-                            Name = "Lavender. "
+                            Name = "Lavender "
                         },
                         new
                         {
                             Id = 4,
                             Description = "known as Mother in law's Tongue.",
-                            Name = "Snake Plant. "
+                            Name = "Snake Plant "
                         },
                         new
                         {
                             Id = 5,
                             Description = "These deciduous trees are well-known for their distinctive.",
-                            Name = "Maple Tree."
+                            Name = "Maple Tree"
                         },
                         new
                         {
                             Id = 6,
                             Description = "A bulbous plant with vibrant, cup-shaped flowers.",
-                            Name = "Tulip."
+                            Name = "Tulip"
                         },
                         new
                         {
                             Id = 7,
                             Description = "A fast-growing grass that forms tall, woody stems.",
-                            Name = "Bamboo."
+                            Name = "Bamboo"
                         },
                         new
                         {
                             Id = 8,
                             Description = "Adapted to arid environments, cacti are known for their water-storing capabilities and unique.",
-                            Name = "Cactus. "
+                            Name = "Cactus "
                         });
                 });
 

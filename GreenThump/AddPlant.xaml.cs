@@ -14,11 +14,9 @@ namespace GreenThump
 		{
 			InitializeComponent();
 
-
+			// hämtar instruktion till listan 
 			using (GreenThumbDb context = new())
 			{
-				//GreenThumpRepository<Instruction> greenThumpRepository = new(context);
-				//var items = greenThumpRepository.GetAll();
 				var items = new List<Instruction>();
 				if (items != null)
 				{
@@ -31,24 +29,6 @@ namespace GreenThump
 					}
 				}
 			}
-
-
-			//using (GreenThumpDb context = new())
-			//{
-			//    GreenThumpRepository<Instruction> greenThumpRepository = new(context);
-			//    var items = greenThumpRepository.GetAll();
-			//    if (items != null)
-			//    {
-			//        foreach (var item in items)
-			//        {
-			//            ComboBoxItem comboBoxItem = new();
-			//            comboBoxItem.Tag = item;
-			//            comboBoxItem.Content = item.InstructionText;
-			//            cmbInstructions.Items.Add(comboBoxItem);
-			//        }
-			//    }
-
-			//}
 		}
 
 		private void btnGoBack_Click(object sender, RoutedEventArgs e)
@@ -58,19 +38,42 @@ namespace GreenThump
 			Close();
 		}
 
+		//private bool IsPlantNameAvaliabel(string name)
+		//{
+		//	using (GreenThumbDb context = new())
+		//	{
+		//		GreenThumbRepository<Plant> PlantRepo = new GreenThumbRepository<Plant>(context);
+		//		return PlantRepo.GetAll().Any(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+		//	}
+		//}
+		//private void ValidatePlantName(string name)
+		//{
+		//	if (IsPlantNameAvaliabel(name))
+		//	{
+		//		MessageBox.Show("Name is already exist. choose another one!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+		//		return;
+		//	}
+		//}
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
+			// vi spara växtens detaljer i database
 			using (GreenThumbDb context = new())
 			{
+				// skapar en repo för instruktioner och växter
 				GreenThumbRepository<Instruction> AddInstruction = new(context);
 				GreenThumbRepository<Plant> AddPlant = new(context);
+				// hämtar användarens inmatning
 				string name = txtName.Text;
+				//string plantname = txtName.Text.ToLower();	
 				string Description = txtDescription.Text;
+				//ValidatePlantName(name);
+
 				List<Instruction> instructions = new();
+				// kollar om alla unputs rutor är ifyllda
 				if (string.IsNullOrWhiteSpace(name))
 				{
 					MessageBox.Show("Please enter a name.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-					return; // Exit the method to prevent further execution
+					return;
 				}
 				else if (string.IsNullOrWhiteSpace(Description))
 				{
@@ -82,6 +85,7 @@ namespace GreenThump
 					MessageBox.Show("Please enter at least one intsruction", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
 					return;
 				}
+				// kollar genom tillagda instruktioner
 				foreach (var inst in lstinstruction.Items)
 				{
 					ListViewItem listItem = (ListViewItem)inst;
@@ -89,12 +93,13 @@ namespace GreenThump
 					AddPlant.GetByID(instInstruction.Id);
 					instructions.Add(instInstruction);
 				}
+				// skapar en ny plant med det info vi har fått in 
 				Plant plant = new();
 				plant.Name = name;
 				plant.Description = Description;
 				plant.Instructions = instructions;
 
-
+				// lägger till det i database
 				AddPlant.Add(plant);
 				AddPlant.Complete();
 				MainWindow mainWindow = new MainWindow();
@@ -102,7 +107,6 @@ namespace GreenThump
 				Close();
 			}
 		}
-
 		private void cmbInstructions_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
 		{
 
@@ -110,6 +114,7 @@ namespace GreenThump
 
 		private void btnAddIntsruction_Click(object sender, RoutedEventArgs e)
 		{
+			// lägger till en ny instruktion i listan 
 			string Addinstruction = txtinstruction.Text;
 
 			if (!string.IsNullOrEmpty(Addinstruction))

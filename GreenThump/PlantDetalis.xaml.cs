@@ -13,14 +13,9 @@ namespace GreenThump
 		public PlantDetalis(Plant plant)
 		{
 			InitializeComponent();
-
 			txtPlantName.Text = plant.Name;
-
-
-
 			using (GreenThumbDb context = new())
 			{
-
 				GreenThumbRepository<Instruction> repository = new(context);
 				foreach (Instruction instruction in plant.Instructions)
 				{
@@ -29,18 +24,14 @@ namespace GreenThump
 					itemsControl.Items.Add(instruction.InstructionText);
 				}
 			}
-
-
 			txtPlantDescription.Text = plant.Description;
 		}
-
 		private void btnGoBackAddPlant_Click(object sender, RoutedEventArgs e)
 		{
 			AddPlant addPlant = new AddPlant();
 			addPlant.Show();
 			Close();
 		}
-
 		private void btnGobacktoMain_Click(object sender, RoutedEventArgs e)
 		{
 			MainWindow mainWindow = new MainWindow();

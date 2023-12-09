@@ -11,10 +11,11 @@ namespace GreenThump
 	public partial class MainWindow : Window
 	{
 
-		private List<Plant>? AllPlants;
+		//private List<Plant>? AllPlants;
 		public MainWindow()
 		{
 			InitializeComponent();
+			// hämta alla växter från database.
 			using (GreenThumbDb context = new())
 			{
 				GreenThumbRepository<Plant> greenThumpRepository = new(context);
@@ -32,10 +33,10 @@ namespace GreenThump
 				}
 			}
 		}
-
+		// en dynamisk sökning för att hämta planten 
 		private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
 		{
-			string searchTerm = txtSearch.Text.ToLower(); // Användarens inmatning
+			string searchTerm = txtSearch.Text.ToLower();
 
 			using (GreenThumbDb context = new())
 			{
@@ -94,6 +95,7 @@ namespace GreenThump
 				{
 					if (lstPlants.Items[i] == selectedItem)
 					{
+						// ta bort cäxten frfån databasen.
 						using (GreenThumbDb context = new GreenThumbDb())
 						{
 							GreenThumbRepository<Plant> greenThumpRepository = new GreenThumbRepository<Plant>(context);
@@ -105,12 +107,7 @@ namespace GreenThump
 								context.SaveChanges();
 								lstPlants.Items.RemoveAt(i);
 							}
-							else
-							{
-								//MessageBox.Show()
-							}
 						}
-						break;
 					}
 				}
 			}
