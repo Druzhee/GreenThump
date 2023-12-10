@@ -33,7 +33,7 @@ namespace GreenThump
 				}
 			}
 		}
-		// en dynamisk sökning för att hämta planten 
+		// en dynamisk sökning för att hämta plantan
 		private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
 		{
 			string searchTerm = txtSearch.Text.ToLower();

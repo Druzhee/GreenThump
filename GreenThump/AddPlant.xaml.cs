@@ -38,25 +38,17 @@ namespace GreenThump
 			Close();
 		}
 
-		//private bool IsPlantNameAvaliabel(string name)
-		//{
-		//	using (GreenThumbDb context = new())
-		//	{
-		//		GreenThumbRepository<Plant> PlantRepo = new GreenThumbRepository<Plant>(context);
-		//		return PlantRepo.GetAll().Any(p => p.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-		//	}
-		//}
-		//private void ValidatePlantName(string name)
-		//{
-		//	if (IsPlantNameAvaliabel(name))
-		//	{
-		//		MessageBox.Show("Name is already exist. choose another one!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
-		//		return;
-		//	}
-		//}
+		private bool IsPlantNameNotAvaliabel(string name)
+		{
+			using (GreenThumbDb context = new())
+			{
+				GreenThumbRepository<Plant> PlantRepo = new GreenThumbRepository<Plant>(context);
+				return PlantRepo.GetAll().Any(p => p.Name.ToLower().Equals(name.ToLower(), StringComparison.OrdinalIgnoreCase));
+			}
+		}
 		private void btnSave_Click(object sender, RoutedEventArgs e)
 		{
-			// vi spara växtens detaljer i database
+			// vi sparar växtens detaljer i database
 			using (GreenThumbDb context = new())
 			{
 				// skapar en repo för instruktioner och växter
@@ -66,52 +58,53 @@ namespace GreenThump
 				string name = txtName.Text;
 				//string plantname = txtName.Text.ToLower();	
 				string Description = txtDescription.Text;
-				//ValidatePlantName(name);
+				bool isNotAvailable = IsPlantNameNotAvaliabel(name);
+				if (isNotAvailable)
+				{
+					MessageBox.Show("Name is already exist. choose another one!", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+				}
+				else
+				{
+					List<Instruction> instructions = new();
+					// kollar om alla unputs rutor är ifyllda
+					if (string.IsNullOrWhiteSpace(name))
+					{
+						MessageBox.Show("Please enter a name.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+						return;
+					}
+					else if (string.IsNullOrWhiteSpace(Description))
+					{
+						MessageBox.Show("Please enter a description", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+						return;
+					}
+					else if (lstinstruction.Items.Count == 0)
+					{
+						MessageBox.Show("Please enter at least one intsruction", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+						return;
+					}
+					// kollar genom tillagda instruktioner
+					foreach (var inst in lstinstruction.Items)
+					{
+						ListViewItem listItem = (ListViewItem)inst;
+						Instruction instInstruction = (Instruction)listItem.Tag;
+						AddPlant.GetByID(instInstruction.Id);
+						instructions.Add(instInstruction);
+					}
+					// skapar en ny plant med det info vi har fått in 
+					Plant plant = new();
+					plant.Name = name;
+					plant.Description = Description;
+					plant.Instructions = instructions;
 
-				List<Instruction> instructions = new();
-				// kollar om alla unputs rutor är ifyllda
-				if (string.IsNullOrWhiteSpace(name))
-				{
-					MessageBox.Show("Please enter a name.", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-					return;
+					// lägger till det i database
+					AddPlant.Add(plant);
+					AddPlant.Complete();
+					MainWindow mainWindow = new MainWindow();
+					mainWindow.Show();
+					Close();
 				}
-				else if (string.IsNullOrWhiteSpace(Description))
-				{
-					MessageBox.Show("Please enter a description", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-					return;
-				}
-				else if (lstinstruction.Items.Count == 0)
-				{
-					MessageBox.Show("Please enter at least one intsruction", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-					return;
-				}
-				// kollar genom tillagda instruktioner
-				foreach (var inst in lstinstruction.Items)
-				{
-					ListViewItem listItem = (ListViewItem)inst;
-					Instruction instInstruction = (Instruction)listItem.Tag;
-					AddPlant.GetByID(instInstruction.Id);
-					instructions.Add(instInstruction);
-				}
-				// skapar en ny plant med det info vi har fått in 
-				Plant plant = new();
-				plant.Name = name;
-				plant.Description = Description;
-				plant.Instructions = instructions;
-
-				// lägger till det i database
-				AddPlant.Add(plant);
-				AddPlant.Complete();
-				MainWindow mainWindow = new MainWindow();
-				mainWindow.Show();
-				Close();
 			}
 		}
-		private void cmbInstructions_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-		{
-
-		}
-
 		private void btnAddIntsruction_Click(object sender, RoutedEventArgs e)
 		{
 			// lägger till en ny instruktion i listan 

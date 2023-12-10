@@ -2,10 +2,13 @@
 
 namespace GreenThump.Database
 {
+	// generisk repo
 	public class GreenThumbRepository<T> where T : class
 	{
 		private readonly GreenThumbDb _context;
 		private readonly DbSet<T> _dbSet;
+
+		// konstruktor som tar emot en instans av GreenThumbDb.
 		public GreenThumbRepository(GreenThumbDb context)
 		{
 			_context = context;
